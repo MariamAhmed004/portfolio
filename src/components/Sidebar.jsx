@@ -1,16 +1,40 @@
 import Nav from 'react-bootstrap/Nav';
 import { motion, AnimatePresence } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
-import { FaUser, FaCode, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
-import { routes } from '../appRoutes.jsx';
+import { Link, NavLink } from 'react-router-dom';
+import { FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaHome } from 'react-icons/fa';
+
 
 function Sidebar({ open, onClose }) {
   const iconMap = {
+    Home: <FaHome />,
     About: <FaUser />,
     Skills: <FaCode />,
     Projects: <FaProjectDiagram />,
     Contact: <FaEnvelope />,
   };
+
+  const routes= [
+    {
+      path: '/',
+      name: 'Home'
+    },
+    {
+      path: '/about',
+      name: 'About'
+    },
+    {
+      path: '/skills',
+      name: 'Skills'
+    },
+    {
+      path: '/projects',
+      name: 'Projects'
+    },
+    {
+      path: '/contact',
+      name: 'Contact'
+    },
+  ];
 
   return (
     <AnimatePresence>
@@ -81,6 +105,7 @@ function Sidebar({ open, onClose }) {
                 </Nav.Link>
               ))}
             </Nav>
+
           </motion.div>
         </>
       )}
