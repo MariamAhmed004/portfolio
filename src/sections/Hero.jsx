@@ -31,7 +31,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="eyebrow mb-3">🏠 Home / About Me</p>
+              {/* Removed section label breadcrumb */}
             <h1 className="display-4 fw-bold mb-3">Maryam Ahmed</h1>
             <p className="h3 text-primary mb-3">Software Developer</p>
             <p className="lead text-light-emphasis mb-4">

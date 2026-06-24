@@ -59,7 +59,7 @@ function About() {
           transition={{ duration: 0.5 }}
           className="mb-4"
         >
-          <p className="eyebrow mb-2">🏠 About Me</p>
+            {/* Removed section label eyebrow */}
           <h1 className="display-5 fw-bold mb-3">A developer focused on practical impact</h1>
           <p className="lead text-light-emphasis mb-0">
             I enjoy building reliable, user-centered systems across web, automation, and enterprise environments.

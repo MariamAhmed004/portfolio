@@ -29,7 +29,7 @@ function Skills() {
           transition={{ duration: 0.5 }}
           className="mb-4"
         >
-          <p className="eyebrow mb-2">🛠 Skills</p>
+              {/* Removed section label eyebrow */}
           <h1 className="display-5 fw-bold mb-3">A balanced mix of technical and collaborative strengths</h1>
           <p className="lead text-light-emphasis mb-0">
             These skills reflect both the development work I’ve completed and the day-to-day habits that help me deliver results.

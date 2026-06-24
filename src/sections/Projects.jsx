@@ -44,7 +44,7 @@ function Projects() {
           transition={{ duration: 0.5 }}
           className="mb-4"
         >
-          <p className="eyebrow mb-2">🚀 Projects</p>
+            {/* Removed section label eyebrow */}
           <h1 className="display-5 fw-bold mb-3">A portfolio of practical, cross-platform work</h1>
           <p className="lead text-light-emphasis mb-0">
             From automation and dashboards to web, desktop, mobile, and game projects, these examples highlight the breadth of my development experience.

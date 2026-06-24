@@ -13,6 +13,10 @@ body {
   color: #f8fafc;
 }
 
+:root {
+  --bs-light-text-emphasis: #ffffff;
+}
+
 .page-shell {
   min-height: 100vh;
   padding: 2rem 0;
@@ -43,7 +47,7 @@ body {
 }
 
 .text-light-emphasis {
-  color: #cbd5e1;
+  color: #ffffff !important;
 }
 
 .btn-outline-light {

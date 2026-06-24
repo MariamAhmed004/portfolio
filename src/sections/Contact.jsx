@@ -38,7 +38,7 @@ function Contact() {
           transition={{ duration: 0.5 }}
           className="mb-4"
         >
-          <p className="eyebrow mb-2">📞 Contact</p>
+            {/* Removed section label eyebrow */}
           <h1 className="display-5 fw-bold mb-3">Let’s connect</h1>
           <p className="lead text-light-emphasis mb-0">
             Interested in collaboration, opportunities, or discussing a project? Reach out through any of the channels below.
