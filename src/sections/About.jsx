@@ -10,7 +10,7 @@ import {
 const education = [
   {
     title: 'Bachelor of Information Communication Technology',
-    meta: 'GPA 3.78/4 · Bahrain Polytechnic · 2022 – 2026',
+    meta: 'GPA 3.81/4 · Bahrain Polytechnic · 2022 – 2026',
   },
   {
     title: 'Secondary General Education – Physics and Math',
