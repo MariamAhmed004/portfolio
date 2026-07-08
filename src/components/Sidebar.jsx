@@ -36,7 +36,7 @@ function Sidebar({ open, onClose }) {
           <motion.div
             className="d-flex flex-column bg-primary vh-100 px-3"
             style={{
-              width: '270px',
+              width: '20%',
               position: 'fixed',
               top: 0,
               left: 0,
