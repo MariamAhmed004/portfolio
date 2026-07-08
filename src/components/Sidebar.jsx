@@ -1,37 +1,15 @@
-import Nav from 'react-bootstrap/Nav';
-import { motion, AnimatePresence } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
-import { FaUser, FaCode, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
-import { routes } from '../appRoutes.jsx';
 
-function Sidebar({ open, onClose }) {
-  const iconMap = {
-    About: <FaUser />,
-    Skills: <FaCode />,
-    Projects: <FaProjectDiagram />,
-    Contact: <FaEnvelope />,
-  };
+import { NavLink, useLocation } from 'react-router-dom';
+import { FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaHome } from 'react-icons/fa';
+import './SidebarFloating.css';
 
-  return (
-    <AnimatePresence>
-      {open && (
-        <>
-          <motion.div
-            className="position-fixed"
-            style={{
-              top: 0,
-              left: 0,
-              width: '100vw',
-              height: '100vh',
-              background: 'rgba(0,0,0,0.3)',
-              zIndex: 1040,
-            }}
-            onClick={onClose}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          />
+const iconMap = {
+  Home: <FaHome />,
+  About: <FaUser />,
+  Skills: <FaCode />,
+  Projects: <FaProjectDiagram />,
+  Contact: <FaEnvelope />,
+};
 
           <motion.div
             className="d-flex flex-column bg-primary vh-100 px-3"
@@ -64,27 +42,32 @@ function Sidebar({ open, onClose }) {
             >
               Maryam Ahmed
             </h2>
+const routes = [
+  { path: '/', name: 'Home' },
+  { path: '/about', name: 'About' },
+  { path: '/skills', name: 'Skills' },
+  { path: '/projects', name: 'Projects' },
+  { path: '/contact', name: 'Contact' },
+];
 
-            <Nav className="flex-column">
-              {routes.map(({ path, name }) => (
-                <Nav.Link
-                  as={NavLink}
-                  to={path}
-                  key={path}
-                  className={({ isActive }) =>
-                    `text-white d-flex align-items-center gap-2${isActive ? ' fw-bold' : ''}`
-                  }
-                  onClick={onClose}
-                  style={{ background: 'none', border: 'none' }}
-                >
-                  {iconMap[name] || null} {name}
-                </Nav.Link>
-              ))}
-            </Nav>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+function Sidebar() {
+  const location = useLocation();
+  return (
+    <nav className="floating-sidebar">
+      {routes.map(({ path, name }) => (
+        <NavLink
+          to={path}
+          key={path}
+          className={({ isActive }) =>
+            `sidebar-icon${isActive || location.pathname === path ? ' active' : ''}`
+          }
+          title={name}
+        >
+          {iconMap[name]}
+          <span className="sidebar-label">{name}</span>
+        </NavLink>
+      ))}
+    </nav>
   );
 }
 

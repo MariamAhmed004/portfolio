@@ -5,6 +5,8 @@ import { FiMonitor } from 'react-icons/fi';
 import { IoMdPhonePortrait } from 'react-icons/io';
 
 function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <motion.section
       id="projects"
