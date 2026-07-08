@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Card from '../components/Card';
 import {
   FaBriefcase,
   FaCertificate,
@@ -69,21 +70,25 @@ function About() {
         <div className="row g-4">
           <div className="col-lg-7">
             <motion.div
-              className="glass-card p-4 mb-4"
+              className="glass-card-wrapper"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
             >
-              <h2 className="h4 fw-bold mb-3">About</h2>
-              <p className="mb-0">
-                Fresh graduate in ICT and Full Stack Developer with practical experience in developing web-based systems,
-                SaaS platforms, and enterprise applications. Passionate about creating efficient, user-focused solutions,
-                with strengths in automation, AI adaptation, and modern best practices.
-              </p>
+              <Card
+                className="glass-card p-4 mb-4"
+                title={<span className="h4 fw-bold">About</span>}
+                content={(
+                  <p className="mb-0">
+                    Fresh graduate in ICT and Full Stack Developer with practical experience in developing web-based systems,
+                    SaaS platforms, and enterprise applications. Passionate about creating efficient, user-focused solutions,
+                    with strengths in automation, AI adaptation, and modern best practices.
+                  </p>
+                )}
+              />
             </motion.div>
 
             <motion.div
-              className="glass-card p-4 mb-4"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -94,16 +99,12 @@ function About() {
               </div>
               <div className="vstack gap-3">
                 {education.map((item) => (
-                  <div key={item.title} className="info-card">
-                    <h3 className="h6 fw-bold mb-1">{item.title}</h3>
-                    <p className="mb-0 small text-light-emphasis">{item.meta}</p>
-                  </div>
+                  <Card key={item.title} className="info-card" title={<span className="h6 fw-bold mb-1">{item.title}</span>} content={<p className="mb-0 small text-light-emphasis">{item.meta}</p>} />
                 ))}
               </div>
             </motion.div>
 
             <motion.div
-              className="glass-card p-4"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
@@ -114,17 +115,12 @@ function About() {
               </div>
               <div className="vstack gap-3">
                 {experience.map((item) => (
-                  <div key={item.role} className="info-card">
-                    <div className="d-flex justify-content-between flex-wrap gap-2 mb-2">
-                      <h3 className="h6 fw-bold mb-0">{item.role}</h3>
-                      <span className="badge bg-primary-subtle text-dark fw-semibold">{item.period}</span>
-                    </div>
-                    <ul className="mb-0 ps-3">
-                      {item.details.map((detail) => (
-                        <li key={detail}>{detail}</li>
-                      ))}
-                    </ul>
-                  </div>
+                  <Card
+                    key={item.role}
+                    className="info-card"
+                    title={<div className="d-flex justify-content-between flex-wrap gap-2 align-items-start"><span className="h6 fw-bold mb-0">{item.role}</span><span className="badge bg-primary-subtle text-dark fw-semibold">{item.period}</span></div>}
+                    content={<ul className="mb-0 ps-3">{item.details.map((detail) => (<li key={detail}>{detail}</li>))}</ul>}
+                  />
                 ))}
               </div>
             </motion.div>
@@ -132,40 +128,45 @@ function About() {
 
           <div className="col-lg-5">
             <motion.div
-              className="glass-card p-4 mb-4"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.5 }}
+              className="mb-4"
             >
-              <div className="d-flex align-items-center gap-2 mb-3">
-                <FaCertificate className="text-primary" />
-                <h2 className="h4 fw-bold mb-0">Certifications</h2>
-              </div>
-              <ul className="mb-0 ps-3">
-                {certifications.map((item) => (
-                  <li key={item} className="mb-2">{item}</li>
-                ))}
-              </ul>
+              <Card
+                className="glass-card p-4"
+                title={<div className="d-flex align-items-center gap-2 mb-0"><FaCertificate className="text-primary" /><span className="h4 fw-bold mb-0">Certifications</span></div>}
+                content={(
+                  <ul className="mb-0 ps-3">
+                    {certifications.map((item) => (
+                      <li key={item} className="mb-2">{item}</li>
+                    ))}
+                  </ul>
+                )}
+              />
             </motion.div>
 
             <motion.div
-              className="glass-card p-4"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.5 }}
             >
-              <div className="d-flex align-items-center gap-2 mb-3">
-                <FaLanguage className="text-primary" />
-                <h2 className="h4 fw-bold mb-0">Languages</h2>
-              </div>
-              <ul className="mb-0 ps-3">
-                <li>Arabic (native)</li>
-                <li>English (excellent reading, writing, speaking)</li>
-              </ul>
-              <div className="mt-4 d-flex align-items-center gap-2 text-light-emphasis">
-                <FaMapMarkerAlt className="text-primary" />
-                <span>Nationality: Bahraini</span>
-              </div>
+              <Card
+                className="glass-card p-4"
+                title={<div className="d-flex align-items-center gap-2 mb-0"><FaLanguage className="text-primary" /><span className="h4 fw-bold mb-0">Languages</span></div>}
+                content={(
+                  <>
+                    <ul className="mb-0 ps-3">
+                      <li>Arabic (native)</li>
+                      <li>English (excellent reading, writing, speaking)</li>
+                    </ul>
+                    <div className="mt-4 d-flex align-items-center gap-2 text-light-emphasis">
+                      <FaMapMarkerAlt className="text-primary" />
+                      <span>Nationality: Bahraini</span>
+                    </div>
+                  </>
+                )}
+              />
             </motion.div>
           </div>
         </div>

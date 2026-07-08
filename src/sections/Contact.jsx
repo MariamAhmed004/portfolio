@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaGlobe, FaGithub, FaLinkedin, FaPhone } from 'react-icons/fa';
+import Card from '../components/Card';
 
 const contactItems = [
   {
@@ -48,17 +49,18 @@ function Contact() {
         <div className="row g-4">
           <div className="col-lg-5">
             <motion.div
-              className="glass-card p-4 h-100"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
             >
-              <h2 className="h4 fw-bold mb-3">Contact details</h2>
-              <ul className="list-unstyled mb-0">
-                <li className="mb-3"><strong>Nationality:</strong> Bahraini</li>
-                <li className="mb-3"><strong>Location:</strong> Bahrain</li>
-                <li className="mb-0"><strong>Availability:</strong> Open to full-time, part-time, and collaborative opportunities</li>
-              </ul>
+              <Card className="glass-card p-4 h-100">
+                <h2 className="h4 fw-bold mb-3">Contact details</h2>
+                <ul className="list-unstyled mb-0">
+                  <li className="mb-3"><strong>Nationality:</strong> Bahraini</li>
+                  <li className="mb-3"><strong>Location:</strong> Bahrain</li>
+                  <li className="mb-0"><strong>Availability:</strong> Open to full-time, part-time, and collaborative opportunities</li>
+                </ul>
+              </Card>
             </motion.div>
           </div>
 
@@ -72,14 +74,8 @@ function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 + index * 0.08, duration: 0.4 }}
                 >
-                  <a href={item.href} target="_blank" rel="noreferrer" className="info-card text-decoration-none d-block h-100">
-                    <div className="d-flex align-items-center gap-3">
-                      <div className="text-primary">{item.icon}</div>
-                      <div>
-                        <p className="mb-1 fw-semibold text-light">{item.label}</p>
-                        <p className="mb-0 small text-light-emphasis">{item.value}</p>
-                      </div>
-                    </div>
+                  <a href={item.href} target="_blank" rel="noreferrer" className="text-decoration-none d-block h-100">
+                    <Card className="info-card" leading={<div className="text-primary">{item.icon}</div>} title={item.label} content={<p className="mb-0 small text-light-emphasis">{item.value}</p>} />
                   </a>
                 </motion.div>
               ))}
@@ -88,18 +84,19 @@ function Contact() {
         </div>
 
         <motion.div
-          className="glass-card p-4 mt-4"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.5 }}
         >
-          <div className="d-flex align-items-center gap-2 mb-2">
-            <FaGlobe className="text-primary" />
-            <h2 className="h5 fw-bold mb-0">Find me online</h2>
-          </div>
-          <p className="mb-0 text-light-emphasis">
-            GitHub and LinkedIn are available for a deeper look at technical projects, collaborative work, and professional background.
-          </p>
+          <Card className="glass-card p-4 mt-4">
+            <div className="d-flex align-items-center gap-2 mb-2">
+              <FaGlobe className="text-primary" />
+              <h2 className="h5 fw-bold mb-0">Find me online</h2>
+            </div>
+            <p className="mb-0 text-light-emphasis">
+              GitHub and LinkedIn are available for a deeper look at technical projects, collaborative work, and professional background.
+            </p>
+          </Card>
         </motion.div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Card from '../components/Card';
 import { FaArrowRight, FaCode, FaLaptopCode, FaRocket } from 'react-icons/fa';
 
 const highlights = [
@@ -48,41 +49,6 @@ function Hero() {
               <Link to="/contact" className="btn btn-outline-light">
                 Contact me
               </Link>
-            </div>
-
-            <div className="row g-3">
-              {highlights.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  className="col-md-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + index * 0.15, duration: 0.4 }}
-                >
-                  <div className="info-card h-100">
-                    <div className="text-primary mb-2">{item.icon}</div>
-                    <h2 className="h6 fw-bold mb-2">{item.title}</h2>
-                    <p className="mb-0 text-light-emphasis small">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="col-lg-5"
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <div className="glass-card p-4">
-              <p className="text-uppercase small text-primary fw-semibold mb-2">At a glance</p>
-              <ul className="list-unstyled mb-0">
-                <li className="mb-3"><strong>Education:</strong> B.I.C.T – Bahrain Polytechnic</li>
-                <li className="mb-3"><strong>Focus:</strong> Web, automation, and enterprise application development</li>
-                <li className="mb-3"><strong>Tools:</strong> .NET, ASP.NET, React, Azure, SQL, GitHub</li>
-                <li className="mb-0"><strong>Languages:</strong> Arabic and English</li>
-              </ul>
             </div>
           </motion.div>
         </div>

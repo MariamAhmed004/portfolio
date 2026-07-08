@@ -1,5 +1,7 @@
 import { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
+import Card from '../components/Card';
 import { FaDesktop, FaGamepad, FaMobileAlt, FaProjectDiagram, FaServer, FaTimes } from 'react-icons/fa';
 import automationImage from '../assets/Batelco-Dashboard.jpeg';
 import cImage from '../assets/csharp.jpeg';
@@ -78,23 +80,22 @@ function Projects() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + index * 0.08, duration: 0.5 }}
             >
-              <div className="glass-card p-4 h-100 d-flex flex-column">
-                <div className="d-flex align-items-center gap-2 mb-3">
-                  <span className="text-primary">{project.icon}</span>
-                  <div>
-                    <h2 className="h5 fw-bold mb-1">{project.title}</h2>
-                    <p className="mb-0 text-light-emphasis small">{project.summary}</p>
-                  </div>
-                </div>
-                <p className="mb-3">{project.description}</p>
-                <button
-                  type="button"
-                  className="btn btn-outline-light btn-sm mt-auto align-self-start"
-                  onClick={() => setSelectedProject(project)}
-                >
-                  View details
-                </button>
-              </div>
+              <Card
+                className="glass-card p-4 h-100 d-flex flex-column"
+                leading={<span className="text-primary">{project.icon}</span>}
+                title={project.title}
+                subtitle={<span className="mb-0 text-light-emphasis small">{project.summary}</span>}
+                content={<p className="mb-3">{project.description}</p>}
+                footer={(
+                  <button
+                    type="button"
+                    className="btn btn-outline-light btn-sm mt-auto align-self-start"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    View details
+                  </button>
+                )}
+              />
             </motion.div>
           ))}
         </div>
@@ -110,7 +111,7 @@ function Projects() {
             exit={{ opacity: 0 }}
             onClick={() => setSelectedProject(null)}
           >
-            <motion.div
+            <Card
               className="glass-card p-4 rounded-4 shadow-lg"
               style={{ maxWidth: '720px', width: 'min(92vw, 720px)' }}
               initial={{ scale: 0.96, y: 16 }}
@@ -151,7 +152,7 @@ function Projects() {
 
               <p className="mb-3">{selectedProject.description}</p>
               <p className="mb-0 text-light-emphasis">{selectedProject.details}</p>
-            </motion.div>
+            </Card>
           </motion.div>
         )}
       </AnimatePresence>

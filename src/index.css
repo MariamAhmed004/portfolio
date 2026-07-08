@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 16px;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(255, 255, 255, 0.92);
+  background-color: #0b1220;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,25 +18,31 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #7fb3ff;
+  text-decoration: none;
 }
 a:hover {
-  color: #535bf2;
+  color: #9ec8ff;
+  text-decoration: underline;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  display: block;
   min-width: 320px;
   min-height: 100vh;
+  color: rgba(255,255,255,0.92);
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  line-height: 1.05;
+  margin: 0 0 0.5rem 0;
 }
+
+h2 { font-size: clamp(1.25rem, 2vw, 1.6rem); margin: 0 0 0.5rem 0; }
+
+p { margin: 0 0 1rem 0; }
 
 button {
   border-radius: 8px;

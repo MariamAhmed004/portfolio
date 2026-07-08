@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaCode, FaCogs, FaLightbulb, FaTools } from 'react-icons/fa';
+import Card from '../components/Card';
 
 const sections = [
   {
@@ -45,34 +46,30 @@ function Skills() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
             >
-              <div className="glass-card p-4 h-100">
-                <div className="d-flex align-items-center gap-2 mb-3">
-                  <span className="text-primary">{section.icon}</span>
-                  <h2 className="h4 fw-bold mb-0">{section.title}</h2>
-                </div>
-                <ul className="mb-0 ps-3">
-                  {section.items.map((item) => (
-                    <li key={item} className="mb-3">{item}</li>
-                  ))}
-                </ul>
-              </div>
+                <Card
+                  className="glass-card p-4 h-100"
+                  leading={<span className="text-primary">{section.icon}</span>}
+                  title={section.title}
+                  content={<ul className="mb-0 ps-3">{section.items.map((item) => (<li key={item} className="mb-3">{item}</li>))}</ul>}
+                />
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="glass-card p-4 mt-4"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.5 }}
         >
-          <div className="d-flex align-items-center gap-2 mb-2">
-            <FaCogs className="text-primary" />
-            <h2 className="h5 fw-bold mb-0">Highlights</h2>
-          </div>
-          <p className="mb-0 text-light-emphasis">
-            I work comfortably across backend automation, frontend development, database design, and cross-functional delivery.
-          </p>
+          <Card className="glass-card p-4 mt-4">
+            <div className="d-flex align-items-center gap-2 mb-2">
+              <FaCogs className="text-primary" />
+              <h2 className="h5 fw-bold mb-0">Highlights</h2>
+            </div>
+            <p className="mb-0 text-light-emphasis">
+              I work comfortably across backend automation, frontend development, database design, and cross-functional delivery.
+            </p>
+          </Card>
         </motion.div>
       </div>
     </section>

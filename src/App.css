@@ -19,7 +19,9 @@ body {
 
 .page-shell {
   min-height: 100vh;
-  padding: 2rem 0;
+  padding: 3.25rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  margin-bottom: 1.5rem;
 }
 
 .glass-card,
@@ -35,8 +37,22 @@ body {
 }
 
 .info-card {
-  padding: 1rem 1.1rem;
+  padding: 1.15rem 1.2rem;
 }
+
+/* Card internal structure */
+.card-root { background: transparent; }
+.card-header .card-leading { display: inline-flex; align-items:center; justify-content:center; }
+.card-header .card-title { font-size: 1.05rem; }
+.card-subtitle { color: rgba(236,241,255,0.8); }
+.card-body { padding: 0; }
+.card-footer { padding: 0; }
+
+/* GitHub activity */
+.github-activity { max-width: 1100px; margin: 0 auto; }
+.github-events .github-event { background: rgba(15,23,42,0.6); border-radius: 12px; }
+.github-events .github-event a { color: #9ec8ff; text-decoration: none; }
+.github-events .github-event a:hover { text-decoration: underline; }
 
 .eyebrow {
   text-transform: uppercase;
@@ -45,6 +61,24 @@ body {
   font-weight: 700;
   color: #93c5fd;
 }
+
+/* spacing helpers */
+.container { max-width: 1100px; margin: 0 auto; }
+.py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+
+/* make buttons and links more visible */
+.btn {
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+}
+.btn-primary { background: linear-gradient(90deg,#4f46e5,#6366f1); color: #fff; border: none; }
+.btn-outline-light { border: 1px solid rgba(255,255,255,0.12); color: #e6eefc; background: transparent; }
+
+/* section spacing */
+.page-shell .row { gap: 1.25rem; }
+
+.display-4, .display-5 { margin-bottom: 0.5rem; }
+.lead { color: rgba(236, 241, 255, 0.85); }
 
 .text-light-emphasis {
   color: #ffffff !important;
@@ -71,3 +105,79 @@ a.info-card:hover {
     padding: 1.5rem 0;
   }
 }
+
+/* Layout and responsive rules */
+.layout {
+  display: block;
+}
+
+/* main content spacing to account for floating sidebar on larger screens */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    display: block;
+  }
+  main {
+    margin-left: 120px; /* space for floating sidebar */
+    padding: 3rem 2rem;
+  }
+}
+
+/* Mobile top nav */
+.mobile-nav {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 1500;
+  background: linear-gradient(180deg, rgba(11,17,32,0.95), rgba(11,17,32,0.9));
+  padding: 0.5rem 1rem;
+  align-items: center;
+}
+.mobile-nav-toggle {
+  font-size: 1.25rem;
+  background: transparent;
+  color: var(--bs-light-text-emphasis);
+  border: none;
+}
+.mobile-nav-links {
+  display: none;
+}
+.mobile-nav-links.open {
+  display: block;
+  margin-top: 0.5rem;
+}
+.mobile-nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.mobile-nav-links a {
+  color: var(--bs-light-text-emphasis);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+}
+
+@media (max-width: 899px) {
+  /* hide floating sidebar on small screens */
+  .floating-sidebar { display: none; }
+  .mobile-nav { display: flex; justify-content: space-between; }
+  main { margin-left: 0; padding: 1.25rem; }
+}
+
+/* Ensure sections are full width and have vertical spacing */
+.section {
+  padding: 3rem 0;
+}
+
+.section#hero { padding-top: 2rem; }
+

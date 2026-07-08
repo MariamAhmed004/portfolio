@@ -1,43 +1,21 @@
-
-import { NavLink, useLocation } from 'react-router-dom';
-import { FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaHome } from 'react-icons/fa';
+import React from 'react';
 import './SidebarFloating.css';
 
-const iconMap = {
-  Home: <FaHome />,
-  About: <FaUser />,
-  Skills: <FaCode />,
-  Projects: <FaProjectDiagram />,
-  Contact: <FaEnvelope />,
-};
-
-const routes = [
-  { path: '/', name: 'Home' },
-  { path: '/about', name: 'About' },
-  { path: '/skills', name: 'Skills' },
-  { path: '/projects', name: 'Projects' },
-  { path: '/contact', name: 'Contact' },
-];
-
-function Sidebar() {
-  const location = useLocation();
+const Sidebar = ({ sections }) => {
   return (
-    <nav className="floating-sidebar">
-      {routes.map(({ path, name }) => (
-        <NavLink
-          to={path}
-          key={path}
-          className={({ isActive }) =>
-            `sidebar-icon${isActive || location.pathname === path ? ' active' : ''}`
-          }
-          title={name}
-        >
-          {iconMap[name]}
-          <span className="sidebar-label">{name}</span>
-        </NavLink>
-      ))}
+    <nav className="floating-sidebar" aria-label="Section navigation">
+      <ul>
+        {sections.map(section => (
+          <li key={section.id}>
+            <a href={`#${section.id}`} className="sidebar-icon" aria-label={section.label || section.id}>
+              {section.icon}
+              <span className="sidebar-label">{section.label || section.id}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
-}
+};
 
 export default Sidebar;
