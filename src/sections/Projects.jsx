@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaDesktop, FaGamepad, FaMobileAlt, FaProjectDiagram, FaServer, FaTimes } from 'react-icons/fa';
 import automationImage from '../assets/Batelco-Dashboard.jpeg';
-import gameImage from '../assets/csharp.jpeg';
+import cImage from '../assets/csharp.jpeg';
+import gameImage from '../assets/Games.png';
 import webImage from '../assets/LedgerLink.jpeg';
 import desktopImage from '../assets/PHP.png';
 import mobileImage from '../assets/react.svg';
@@ -22,7 +23,7 @@ const projects = [
     summary: 'LedgerLink, RentOps, Borrow My Charger',
     description: 'LedgerLink is a SaaS platform for SMEs in Bahrain built with ReactJS, ASP.NET Core APIs, Azure SQL Database, ASP.NET Identity, Gemini API, EF Core, and HighCharts. RentOps and Borrow My Charger cover rental and EV charging use cases across .NET, ASP.NET Core MVC, HTML, CSS, PHP, and JavaScript.',
     details: 'I like how this work blends product thinking, clean interfaces, and practical backend integrations into real business tools.',
-    image: webImage,
+    image: webImage,cImage,
   },
   {
     title: 'Game Development',
