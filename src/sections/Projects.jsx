@@ -46,7 +46,7 @@ const projects = [
     icon: <FaMobileAlt />,
     summary: 'Jobify',
     description: 'iOS app for job postings and applications, built in Xcode and connected to Firebase and Cloudinary.',
-    details: 'I value this project for the way it brings a simple user experience to a real-world hiring workflow.',
+    details: 'I love this project for the way it brings a simple user experience to a real-world hiring workflow.',
     image: mobileImage,
   },
 ];
