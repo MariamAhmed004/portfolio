@@ -16,24 +16,6 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Sidebar sections={sections} />
-
-      <header className="mobile-nav">
-        <button
-          className="mobile-nav-toggle"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen(v => !v)}
-        >
-          ☰
-        </button>
-        <nav className={`mobile-nav-links ${mobileOpen ? 'open' : ''}`} aria-hidden={!mobileOpen}>
-          <ul>
-            {sections.map(s => (
-              <li key={s.id}><a href={`#${s.id}`} onClick={() => setMobileOpen(false)}>{s.icon} {s.label}</a></li>
-            ))}
-          </ul>
-        </nav>
-      </header>
-
       <main>{children}</main>
     </div>
   );

@@ -68,7 +68,7 @@ function About() {
         </motion.div>
 
         <div className="row g-4">
-          <div className="col-lg-7">
+          <div>
             <motion.div
               className="glass-card-wrapper"
               initial={{ opacity: 0, y: 24 }}
@@ -126,7 +126,7 @@ function About() {
             </motion.div>
           </div>
 
-          <div className="col-lg-5">
+          <div>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
