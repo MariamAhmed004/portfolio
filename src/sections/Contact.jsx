@@ -4,12 +4,6 @@ import Card from '../components/Card';
 
 const contactItems = [
   {
-    icon: <FaPhone />,
-    label: 'Phone',
-    value: '+973 37766860',
-    href: 'tel:+97337766860',
-  },
-  {
     icon: <FaEnvelope />,
     label: 'Email',
     value: 'mariamisa5w@gmail.com',
@@ -18,13 +12,13 @@ const contactItems = [
   {
     icon: <FaGithub />,
     label: 'GitHub',
-    value: 'github.com/MariamAhmed004',
+    value: 'MariamAhmed004',
     href: 'https://github.com/MariamAhmed004',
   },
   {
     icon: <FaLinkedin />,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/maryam-ahmed-932532250',
+    value: 'Maryam Ahmed',
     href: 'https://linkedin.com/in/maryam-ahmed-932532250',
   },
 ];
@@ -39,7 +33,7 @@ function Contact() {
           transition={{ duration: 0.5 }}
           className="mb-4"
         >
-            {/* Removed section label eyebrow */}
+            
           <h1 className="display-5 fw-bold mb-3">Let’s connect</h1>
           <p className="lead text-light-emphasis mb-0">
             Interested in collaboration, opportunities, or discussing a project? Reach out through any of the channels below.
@@ -47,29 +41,12 @@ function Contact() {
         </motion.div>
 
         <div className="row g-4">
-          <div className="col-lg-5">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-            >
-              <Card className="glass-card p-4 h-100">
-                <h2 className="h4 fw-bold mb-3">Contact details</h2>
-                <ul className="list-unstyled mb-0">
-                  <li className="mb-3"><strong>Nationality:</strong> Bahraini</li>
-                  <li className="mb-3"><strong>Location:</strong> Bahrain</li>
-                  <li className="mb-0"><strong>Availability:</strong> Open to full-time, part-time, and collaborative opportunities</li>
-                </ul>
-              </Card>
-            </motion.div>
-          </div>
-
-          <div className="col-lg-7">
-            <div className="row g-3">
+          <div className="col-12">
+            <div className="contact-grid">
               {contactItems.map((item, index) => (
                 <motion.div
                   key={item.label}
-                  className="col-md-6"
+                  className="contact-grid-item"
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 + index * 0.08, duration: 0.4 }}
@@ -82,22 +59,6 @@ function Contact() {
             </div>
           </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.5 }}
-        >
-          <Card className="glass-card p-4 mt-4">
-            <div className="d-flex align-items-center gap-2 mb-2">
-              <FaGlobe className="text-primary" />
-              <h2 className="h5 fw-bold mb-0">Find me online</h2>
-            </div>
-            <p className="mb-0 text-light-emphasis">
-              GitHub and LinkedIn are available for a deeper look at technical projects, collaborative work, and professional background.
-            </p>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );

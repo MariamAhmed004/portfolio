@@ -7,7 +7,7 @@ import About from './sections/About';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
-import GithubActivity from './components/GithubActivity';
+import CursorGlow from './components/CursorGlow';
 
 function App() {
   useEffect(() => {
@@ -42,14 +42,23 @@ function App() {
 
   return (
     <Router>
-    <Layout>
-      <Hero id="hero" />
-      <About id="about" />
-      <Skills id="skills" />
-      <Projects id="projects" />
-      <Contact id="contact" />
-      <GithubActivity username="MariamAhmed004" />
-    </Layout>
+      <CursorGlow 
+          color="#4f8cff"
+          trailLength={6000}
+          trailThickness={1}
+          lineCount={1}
+          lineGap={2}
+          idleDelay={2000}
+          blur={28}
+          opacity={0.9}
+      />
+      <Layout>
+        <Hero id="hero" />
+        <About id="about" />
+        <Skills id="skills" />
+        <Projects id="projects" />
+        <Contact id="contact" />
+      </Layout>
     </Router>
   );
 }

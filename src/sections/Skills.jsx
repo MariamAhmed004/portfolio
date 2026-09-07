@@ -1,22 +1,38 @@
 import { motion } from 'framer-motion';
-import { FaCode, FaCogs, FaLightbulb, FaTools } from 'react-icons/fa';
-import Card from '../components/Card';
+import { FaAws, FaCode, FaDatabase, FaGithub, FaJs, FaPython, FaTools } from 'react-icons/fa';
+
+const Motion = motion.div;
 
 const sections = [
   {
-    title: 'Technical Skills',
+    title: 'Languages',
     icon: <FaCode />,
-    items: ['Programming & Development: Web, mobile, desktop solutions.', 'Database & Automation: SQL design, PL/SQL procedures, Linux scheduling.', 'Web Technologies: .NET Framework, ASP.NET, modern frontend libraries.'],
+    items: [
+      { name: 'Python', icon: <FaPython /> },
+      { name: 'C++', icon: <FaCode /> },
+      { name: 'JavaScript', icon: <FaJs /> },
+      { name: 'SQL', icon: <FaDatabase /> },
+    ],
   },
   {
     title: 'Tools & Platforms',
     icon: <FaTools />,
-    items: ['Visual Studio, VS Code, Xcode, GitHub, Azure DevOps, Oracle SQL Developer, Unity, AWS, Microsoft Power Apps.'],
+    items: [
+      { name: '.NET Framework', icon: <FaCode /> },
+      { name: 'GitHub', icon: <FaGithub /> },
+      { name: 'AWS', icon: <FaAws /> },
+      { name: 'Power Apps', icon: <FaTools /> },
+    ],
   },
   {
-    title: 'Soft Skills',
-    icon: <FaLightbulb />,
-    items: ['Strong teamwork and collaboration.', 'Thrives under pressure, delivers results.', 'Excellent time management and prioritization.'],
+    title: 'Data Analytics',
+    icon: <FaDatabase />,
+    items: [
+      { name: 'Oracle SQL', icon: <FaDatabase /> },
+      { name: 'PL/SQL', icon: <FaCode /> },
+      { name: 'Data Automation', icon: <FaTools /> },
+      { name: 'Reporting', icon: <FaDatabase /> },
+    ],
   },
 ];
 
@@ -24,53 +40,42 @@ function Skills() {
   return (
     <section id="skills" className="page-shell">
       <div className="container py-5">
-        <motion.div
+        <Motion
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="mb-4"
         >
-              {/* Removed section label eyebrow */}
-          <h1 className="display-5 fw-bold mb-3">A balanced mix of technical and collaborative strengths</h1>
+              <h1 className="display-5 fw-bold mb-3">Technical skills</h1>
           <p className="lead text-light-emphasis mb-0">
-            These skills reflect both the development work I’ve completed and the day-to-day habits that help me deliver results.
+                A practical toolkit spanning development, platforms, and data-focused problem solving.
           </p>
-        </motion.div>
+        </Motion>
 
-        <div className="row g-4">
+            <div className="skills-grid">
           {sections.map((section, index) => (
             <motion.div
               key={section.title}
-              className=""
+                  className="skill-panel"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
             >
-                <Card
-                  className="glass-card p-4 h-100"
-                  leading={<span className="text-primary">{section.icon}</span>}
-                  title={section.title}
-                  content={<ul className="mb-0 ps-3">{section.items.map((item) => (<li key={item} className="mb-3">{item}</li>))}</ul>}
-                />
+                  <div className="skill-panel-heading">
+                    <span className="skill-panel-icon">{section.icon}</span>
+                    <h2>{section.title}</h2>
+                  </div>
+                  <div className="skill-items">
+                    {section.items.map((item) => (
+                      <div className="skill-item" key={item.name}>
+                        <span className="skill-item-icon">{item.icon}</span>
+                        <span>{item.name}</span>
+                      </div>
+                    ))}
+                  </div>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.5 }}
-        >
-          <Card className="glass-card p-4 mt-4">
-            <div className="d-flex align-items-center gap-2 mb-2">
-              <FaCogs className="text-primary" />
-              <h2 className="h5 fw-bold mb-0">Highlights</h2>
-            </div>
-            <p className="mb-0 text-light-emphasis">
-              I work comfortably across backend automation, frontend development, database design, and cross-functional delivery.
-            </p>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );
