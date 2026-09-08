@@ -17,6 +17,9 @@ const Layout = ({ children }) => {
     <div className="layout">
       <Sidebar sections={sections} />
       <main>{children}</main>
+      <footer className="site-footer">
+        &copy; {new Date().getFullYear()} Maryam Ahmed. All rights reserved.
+      </footer>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Card from '../components/Card';
 import {
   FaBriefcase,
   FaBrain,
+  FaChartLine,
   FaChalkboardTeacher,
   FaCode,
   FaCertificate,
@@ -37,6 +38,7 @@ const education = [
 ];
 
 const certifications = [
+  { title: 'General Assembly – Data Analytics Bootcamp Fellow (Jun 2026 – Sep 2026)', image: null, icon: FaChartLine },
   { title: 'Think Smart – Soft Skill Development (Feb 2025)', image: SoftSkillsImage, icon: FaChalkboardTeacher },
   { title: 'Microsoft – Power Platform Developer Associate (Jan 2025)', image: MicrosoftPowerAppsImage, icon: IoLogoMicrosoft },
   { title: 'Kerne – Machine Learning Olympiad (Mar 2023)', image: MloImage, icon: FaBrain },
@@ -209,7 +211,14 @@ function About() {
               >
                 <FaTimes />
               </button>
-              <img src={selectedCertification.image} alt={selectedCertification.title} />
+              {selectedCertification.image ? (
+                <img src={selectedCertification.image} alt={selectedCertification.title} />
+              ) : (
+                <div className="certification-modal-placeholder">
+                  <FaCertificate />
+                  <span>Certificate image coming soon</span>
+                </div>
+              )}
               <p>{selectedCertification.title}</p>
             </motion.div>
           </motion.div>

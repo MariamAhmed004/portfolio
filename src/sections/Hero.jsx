@@ -81,7 +81,7 @@ function Hero() {
             <Card
               className="glass-card hero-quote-card"
               leading={<span className="hero-card-icon"><FaQuoteLeft /></span>}
-              content={<p className="hero-quote mb-0">Building practical software with curiosity, care, and a focus on real-world impact.</p>}
+              content={<p className="hero-quote mb-0">"Technology is most powerful when it turns information into action."</p>}
             />
           </div>
 
