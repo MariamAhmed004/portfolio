@@ -62,7 +62,7 @@ Within this repository (and across my GitHub), you will find:
 
 ## 📄 CV
 
-You can view my detailed CV [here in the repository](public/Maryam%20Ahmed__CV.pdf).
+You can view my detailed CV [here in the repository]().
 
 ---
 
