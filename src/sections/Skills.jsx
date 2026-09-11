@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { FaAws, FaCode, FaDatabase, FaGithub, FaJs, FaPython, FaTools } from 'react-icons/fa';
+import { FaChartBar, FaChartLine, FaCode, FaDatabase, FaFileExcel, FaGamepad, FaGithub, FaJava, FaPlug, FaPython, FaTools } from 'react-icons/fa';
+import { TbBrandCSharp } from "react-icons/tb";
 
 const Motion = motion.div;
 
@@ -8,30 +9,30 @@ const sections = [
     title: 'Languages',
     icon: <FaCode />,
     items: [
+      { name: 'C#', icon: <TbBrandCSharp /> },
       { name: 'Python', icon: <FaPython /> },
-      { name: 'C++', icon: <FaCode /> },
-      { name: 'JavaScript', icon: <FaJs /> },
-      { name: 'SQL', icon: <FaDatabase /> },
+      { name: 'Java', icon: <FaJava /> },
+      { name: 'SQL & PL/SQL', icon: <FaDatabase /> },
     ],
   },
   {
     title: 'Tools & Platforms',
     icon: <FaTools />,
     items: [
+      { name: 'Git', icon: <FaGithub /> },
+      { name: 'REST API', icon: <FaPlug /> },
       { name: '.NET Framework', icon: <FaCode /> },
-      { name: 'GitHub', icon: <FaGithub /> },
-      { name: 'AWS', icon: <FaAws /> },
-      { name: 'Power Apps', icon: <FaTools /> },
+      { name: 'Unity', icon: <FaGamepad /> },
     ],
   },
   {
     title: 'Data Analytics',
     icon: <FaDatabase />,
     items: [
-      { name: 'Oracle SQL', icon: <FaDatabase /> },
-      { name: 'PL/SQL', icon: <FaCode /> },
-      { name: 'Data Automation', icon: <FaTools /> },
-      { name: 'Reporting', icon: <FaDatabase /> },
+      { name: 'Power BI', icon: <FaChartLine /> },
+      { name: 'Tableau', icon: <FaChartBar /> },
+      { name: 'Python Pandas', icon: <FaPython /> },
+      { name: 'Excel', icon: <FaFileExcel /> },
     ],
   },
 ];

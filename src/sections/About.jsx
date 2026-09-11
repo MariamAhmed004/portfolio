@@ -15,9 +15,12 @@ import {
 
 import { IoDocuments, IoLogoMicrosoft } from "react-icons/io5";
 import AlisonImage from '../assets/Alison.png';
+import AfsInternshipImage from '../assets/AFS-Internship.png';
 import BatelcoBrincImage from '../assets/BatelcoBrinc.jpeg';
+import BatelcoExperienceImage from '../assets/batelco-experiance.png';
 import MloImage from '../assets/MLO.png';
 import MicrosoftPowerAppsImage from '../assets/Microsoft_PowerApps.jpeg';
+import DimumaRecommendationImage from '../assets/recommendation-Dimuma.png';
 import SoftSkillsImage from '../assets/SoftSkills.jpeg';
 
 
@@ -51,35 +54,43 @@ const experience = [
     role: 'Batelco by Beyon – Industrial Trainee',
     period: 'Feb 2026 – May 2026',
     icon: FaArrowsSpin,
-    details: ['Implemented database automation and reconciliation procedures with PL/SQL packages.', 'Designed and tested Linux cron-based scheduling scripts.', 'Assisted in developing a dashboard concept for workflow monitoring.'],
+    image: BatelcoExperienceImage,
+    details: ['Developed and deployed a PL/SQL automation package that generates and schedules financial reports.','Implemented database automation and reconciliation procedures with PL/SQL packages.', 'Designed and tested Linux cron-based scheduling scripts.', 'Assisted in developing a dashboard concept for workflow monitoring.'],
   },
   {
-    role: 'Dimuma Company – Part-Time Full Stack Developer',
-    period: 'Oct 2025 – Nov 2025',
+    role: 'Dimuma Company',
+    period: 'Jul 2025 – Nov 2025',
     icon: FaCode,
-    details: ['Developed ASP.NET Core features and SQL procedures.', 'Resolved source control conflicts.', 'Contributed to project documentation.'],
-  },
-  {
-    role: 'Dimuma Company – Trainee',
-    period: 'Jul 2025 – Sep 2025',
-    icon: FaCode,
-    details: ['Supported database design and normalization.', 'Troubleshot issues with senior developers.', 'Assisted in testing and auditing documentation.'],
+    image: DimumaRecommendationImage,
+    positions: [
+      {
+        role: 'Part-Time Full Stack Developer',
+        period: 'Oct 2025 – Nov 2025',
+        details: ['Developed ASP.NET Core features and SQL procedures.', 'Resolved source control conflicts.', 'Contributed to project documentation.'],
+      },
+      {
+        role: 'Trainee',
+        period: 'Jul 2025 – Sep 2025',
+        details: ['Supported database design and normalization.', 'Troubleshot issues with senior developers.', 'Assisted in testing and auditing documentation.'],
+      },
+    ],
   },
   {
     role: 'Arab Financial Company (AFS) – IT Infrastructure Trainee',
     period: 'Jul 2023 – Aug 2023',
     icon: IoDocuments,
+    image: AfsInternshipImage,
     details: ['Prepared documentation of standards & procedures.', 'Created infrastructure diagrams.', 'Shadowed engineers for hands-on exposure.'],
   },
 ];
 
 function About() {
-  const [selectedCertification, setSelectedCertification] = useState(null);
+  const [selectedDocument, setSelectedDocument] = useState(null);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
-        setSelectedCertification(null);
+        setSelectedDocument(null);
       }
     };
 
@@ -145,7 +156,26 @@ function About() {
                     className="education-card experience-card"
                     leading={<span className="education-card-icon"><item.icon /></span>}
                     title={<div className="experience-card-heading"><span className="education-card-title">{item.role}</span><span className="experience-card-period">{item.period}</span></div>}
-                    content={<ul className="experience-card-details mb-0">{item.details.map((detail) => (<li key={detail}>{detail}</li>))}</ul>}
+                    content={item.positions ? (
+                      <div className="experience-card-positions">
+                        {item.positions.map((position) => (
+                          <div key={position.role} className="experience-card-position">
+                            <div className="experience-position-heading">
+                              <span className="experience-position-role">{position.role}</span>
+                              <span className="experience-card-period">{position.period}</span>
+                            </div>
+                            <ul className="experience-card-details mb-0">
+                              {position.details.map((detail) => (<li key={detail}>{detail}</li>))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    ) : <ul className="experience-card-details mb-0">{item.details.map((detail) => (<li key={detail}>{detail}</li>))}</ul>}
+                    footer={(
+                      <button type="button" className="experience-card-action" onClick={() => setSelectedDocument(item)}>
+                        View
+                      </button>
+                    )}
                   />
                 ))}
               </div>
@@ -169,7 +199,7 @@ function About() {
                     key={item.title}
                     type="button"
                     className="certification-card"
-                    onClick={() => setSelectedCertification(item)}
+                    onClick={() => setSelectedDocument(item)}
                   >
                     <span className="education-card-icon"><item.icon /></span>
                     <span className="certification-card-title">{item.title}</span>
@@ -183,20 +213,20 @@ function About() {
       </div>
 
       <AnimatePresence>
-        {selectedCertification && (
+        {selectedDocument && (
           <motion.div
             className="certification-modal-backdrop"
             role="presentation"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedCertification(null)}
+            onClick={() => setSelectedDocument(null)}
           >
             <motion.div
               className="certification-modal"
               role="dialog"
               aria-modal="true"
-              aria-label={selectedCertification.title}
+              aria-label={selectedDocument.title || selectedDocument.role}
               initial={{ opacity: 0, scale: 0.88, y: 24 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.88, y: 24 }}
@@ -207,19 +237,19 @@ function About() {
                 type="button"
                 className="certification-modal-close"
                 aria-label="Close certificate preview"
-                onClick={() => setSelectedCertification(null)}
+                onClick={() => setSelectedDocument(null)}
               >
                 <FaTimes />
               </button>
-              {selectedCertification.image ? (
-                <img src={selectedCertification.image} alt={selectedCertification.title} />
+              {selectedDocument.image ? (
+                <img src={selectedDocument.image} alt={selectedDocument.title || selectedDocument.role} />
               ) : (
                 <div className="certification-modal-placeholder">
                   <FaCertificate />
                   <span>Certificate image coming soon</span>
                 </div>
               )}
-              <p>{selectedCertification.title}</p>
+              <p>{selectedDocument.title || selectedDocument.role}</p>
             </motion.div>
           </motion.div>
         )}

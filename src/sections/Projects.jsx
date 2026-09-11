@@ -4,18 +4,24 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Card from '../components/Card';
 import { FaChartLine, FaChevronLeft, FaChevronRight, FaDesktop, FaDownload, FaGamepad, FaGithub, FaMobileAlt, FaProjectDiagram, FaServer, FaTimes } from 'react-icons/fa';
 import automationImage from '../assets/Batelco-Dashboard.jpeg';
+import architectureImage from '../assets/BTC-ArchitectureDiagram.png';
 import cImage from '../assets/csharp.jpeg';
 import gameImage from '../assets/Games.png';
 import webImage from '../assets/LedgerLink.jpeg';
-import desktopImage from '../assets/PHP.png';
-import mobileImage from '../assets/react.svg';
+import usecaseImage from '../assets/Use Case Model-leadgerlink.bmp';
+import mobileImage from '../assets/Jobify.png';
 import city311Pdf from '../assets/analytics/citi311Power BI.pdf';
+import chicago311Image from '../assets/311-chicago.png';
+import nyc311Image from '../assets/nyc311.png';
 import electricityPdf from '../assets/analytics/VortexAnalytics_Electricity Generation from Wind_Workbook.pdf';
 import textileDashboard from '../assets/analytics/import textile.png';
 import textilePdf from '../assets/analytics/Data Sprint - Data Minds - textile imports and reexports.pdf';
 import flightDashboard from '../assets/analytics/flight delays.png';
 import flightPdf from '../assets/analytics/Capstone Project - US Flight Delays.pdf';
 import electricityDashboard from '../assets/analytics/windturbines-dash.jpeg';
+import premierLeagueImage from '../assets/premierleague.png';
+import rentopsdesktopImage from '../assets/rentop-desktop.png';
+import borrowChargerImage from '../assets/PHP.png';
 
 const webProjects = [
   {
@@ -23,7 +29,7 @@ const webProjects = [
     summary: 'SaaS platform for SMEs in Bahrain',
     description: 'A SaaS platform for small and medium-sized businesses with multi-organization management, branch operations, inventory, dashboards, notifications, and AI-assisted business insights.',
     technologies: ['ASP.NET', 'React.js', 'Azure SQL', 'Gemini API', 'Highcharts'],
-    image: webImage,
+    images: [webImage, usecaseImage],
     repositoryUrl: 'https://github.com/MariamAhmed004/LeadgerLink',
   },
   {
@@ -38,8 +44,9 @@ const webProjects = [
     title: 'Borrow My Charger',
     summary: 'EV charging use case',
     description: 'A platform for finding and booking available EV charging stations, with station management, time-slot availability, multiple user roles, and administration tools.',
-    technologies: ['JavaScript', 'HTML', 'CSS'],
+    technologies: ['JavaScript', 'HTML', 'CSS','PHP'],
     repositoryUrl: 'https://github.com/MariamAhmed004/BorrowMyCharger',
+    image: borrowChargerImage,
   },
 ];
 
@@ -49,21 +56,14 @@ const desktopProjects = [
     summary: 'Windows rental management tool',
     description: 'An equipment rental management application for administrators and employees to manage assets, users, employees, and rental transactions.',
     technologies: ['C#', '.NET', 'SQL', 'Entity Framework'],
-    image: desktopImage,
-  },
-  {
-    title: 'Happy Journey',
-    summary: 'Desktop travel application',
-    description: 'A flight management application for managing airlines, flights, and passenger bookings through a SQL-connected desktop system.',
-    technologies: ['C#', 'ASP.NET', 'SQL Database'],
-    image: cImage,
+    image: rentopsdesktopImage,
   },
   {
     title: 'Premier League',
     summary: 'Java sports league management app',
     description: 'A Java desktop application for managing Premier League teams, players, captains, and team-management operations with serialized data persistence.',
     technologies: ['Java', 'NetBeans', 'Java Serialization'],
-    image: cImage,
+    image: premierLeagueImage,
   },
 ];
 
@@ -73,6 +73,7 @@ const analyticsProjects = [
     summary: 'Power BI dashboard for city service requests',
     description: 'Analysis of 311 service-request data from official New York City and Chicago government data portals from 2019 to 2022, comparing trends and patterns across both cities.',
     tools: 'Power BI, Data Transformation, Data Visualization',
+    images: [chicago311Image, nyc311Image],
     pdf: city311Pdf,
   },
   {
@@ -109,7 +110,7 @@ const projects = [
     description: 'Automation, monitoring, and reconciliation solutions that connect backend processing with practical operational visibility.',
     details: 'A billing reconciliation and monitoring system that uses PL/SQL packages to identify discrepancies, Linux scripts for scheduled processing, a web dashboard for manual triggers and monitoring, and email notifications for completed results. The solution integrates Linux, database, SMTP, and web application servers.',
     technologies: ['PL/SQL', 'SQL Server', 'Linux Shell', 'SMTP'],
-    image: automationImage,
+    images: [automationImage, architectureImage],
     repositoryUrl: 'https://github.com/MariamAhmed004/BTC_ReconciliationAutomation',
   },
   {
@@ -134,7 +135,7 @@ const projects = [
     icon: <FaMobileAlt />,
     summary: 'Jobify',
     description: 'Mobile applications that connect users with practical services through focused workflows and cloud-backed functionality.',
-    details: 'Jobify is an iOS application built with Swift and Xcode for posting, discovering, and applying for jobs. It uses Firebase Authentication and Database for user and job data, and Cloudinary for job-posting images.',
+    details: 'Jobify is an iOS application built with Swift and Xcode for posting, discovering, and applying for jobs.Additionally, it always access to learning resources added by the admin. It uses Firebase Authentication and Database for user and job data, and Cloudinary for job-posting images.',
     technologies: ['Swift', 'Xcode', 'Firebase', 'Cloudinary'],
     image: mobileImage,
     repositoryUrl: 'https://github.com/Maryam308/Jobify',
@@ -151,8 +152,8 @@ const projects = [
   {
     title: 'Desktop Applications',
     icon: <FaDesktop />,
-    summary: 'RentOps Desktop, Happy Journey, Premier League',
-    description: 'Desktop tools for rental operations, flight management, and sports league administration, combining database-backed and serialized data solutions.',
+    summary: 'RentOps Desktop, Premier League',
+    description: 'Desktop tools for rental operations and sports league administration, with database-backed and serialized data solutions.',
     technologies: ['Java', 'C#', '.NET', 'SQL'],
     type: 'desktop',
   },
@@ -259,6 +260,18 @@ function Projects() {
               exit={{ scale: 0.96, y: 16 }}
               onClick={(event) => event.stopPropagation()}
             >
+              {selectedGallery && (
+                <div className="project-modal-navigation" aria-label={`${selectedGallery.type} project navigation`}>
+                  <button type="button" className="btn btn-outline-light btn-sm" aria-label="Previous project" onClick={() => showGalleryProject(-1)}>
+                    <FaChevronLeft />
+                  </button>
+                  <span>{selectedGalleryIndex + 1} / {selectedGallery.items.length}</span>
+                  <button type="button" className="btn btn-outline-light btn-sm" aria-label="Next project" onClick={() => showGalleryProject(1)}>
+                    <FaChevronRight />
+                  </button>
+                </div>
+              )}
+
               <div className="d-flex justify-content-between align-items-start gap-3 mb-3">
                 <div>
                   <h3 className="h4 fw-bold mb-1">{activeProject.title}</h3>
@@ -274,18 +287,17 @@ function Projects() {
                 </button>
               </div>
 
-              {activeProject.dashboardImage ? (
-                <img
-                  src={activeProject.dashboardImage}
-                  alt={`${activeProject.title} dashboard`}
-                  className="project-modal-image rounded-3 mb-3"
-                />
-              ) : activeProject.image ? (
-                <img
-                  src={activeProject.image}
-                  alt={activeProject.title}
-                  className="project-modal-image rounded-3 mb-3"
-                />
+              {(activeProject.images || [activeProject.dashboardImage || activeProject.image].filter(Boolean)).length > 0 ? (
+                <div className={`project-modal-image-grid${activeProject.images?.length > 1 ? ' has-multiple' : ''}`}>
+                  {(activeProject.images || [activeProject.dashboardImage || activeProject.image].filter(Boolean)).map((image, imageIndex) => (
+                    <img
+                      key={image}
+                      src={image}
+                      alt={`${activeProject.title} preview ${imageIndex + 1}`}
+                      className="project-modal-image rounded-3"
+                    />
+                  ))}
+                </div>
               ) : (
                 <div
                   className="project-modal-placeholder d-flex align-items-center justify-content-center rounded-3 mb-3 border border-secondary"
@@ -312,17 +324,6 @@ function Projects() {
                 </a>
               )}
               {activeProject.details && <p className="mb-0 mt-3 text-light-emphasis">{activeProject.details}</p>}
-              {selectedGallery && (
-                <div className="project-modal-navigation" aria-label={`${selectedGallery.type} project navigation`}>
-                  <button type="button" className="btn btn-outline-light btn-sm" aria-label="Previous project" onClick={() => showGalleryProject(-1)}>
-                    <FaChevronLeft />
-                  </button>
-                  <span>{selectedGalleryIndex + 1} / {selectedGallery.items.length}</span>
-                  <button type="button" className="btn btn-outline-light btn-sm" aria-label="Next project" onClick={() => showGalleryProject(1)}>
-                    <FaChevronRight />
-                  </button>
-                </div>
-              )}
             </Card>
           </motion.div>
         )}

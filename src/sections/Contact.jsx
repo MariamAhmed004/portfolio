@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaGlobe, FaGithub, FaLinkedin, FaPhone } from 'react-icons/fa';
+import { FaEnvelope, FaFilePdf, FaGithub, FaLinkedin } from 'react-icons/fa';
 import Card from '../components/Card';
+import cvFile from '../assets/Maryam Ahmed__CV.pdf';
 
 const contactItems = [
   {
@@ -20,6 +21,12 @@ const contactItems = [
     label: 'LinkedIn',
     value: 'Maryam Ahmed',
     href: 'https://linkedin.com/in/maryam-ahmed-932532250',
+  },
+  {
+    icon: <FaFilePdf />,
+    label: 'CV',
+    value: 'View my CV',
+    href: cvFile,
   },
 ];
 

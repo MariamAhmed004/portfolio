@@ -6,9 +6,9 @@ Welcome to my personal portfolio repository! I am Maryam Ahmed, a passionate and
 
 - **Software Engineer & Problem Solver**
 
-I'm a recent graduate with a **Bachelor of Information Communication Technology (GPA 3.7/4)** from **Bahrain Polytechnic (2022–2026)**. My academic foundation, hands-on experience, and diverse certifications position me to tackle complex problems and deliver creative solutions.
+I'm a recent graduate with a **Bachelor of Information Communication Technology (GPA 3.81/4)** from **Bahrain Polytechnic (2022–2026)**. My academic foundation, hands-on experience, and diverse certifications position me to tackle complex problems and deliver creative solutions.
 
-I’m deeply interested in leveraging modern technologies, with a strong focus on low-code/no-code platforms, data visualization, process automation, and inclusive, user-centered applications.
+I’m deeply interested in leveraging modern technologies, with a strong focus on data visualization, process automation, and inclusive, user-centered applications.
 
 ## 🧰 Technical Skills Highlights
 
@@ -22,8 +22,6 @@ Within this repository (and across my GitHub), you will find:
 
 - Full web applications and interactive websites
 - Backend API projects and scripts
-- UI/UX prototypes and design explorations
-
 
 
 ## 🏆 Certifications & Achievements
@@ -46,11 +44,6 @@ Within this repository (and across my GitHub), you will find:
 - **Alison – Management Information Systems Course**  
   2022
 
-## 🌟 What You’ll Find Here
-
-- **Live Demos**: Some projects include GitHub Pages deployments — see each project's README for live/demo links.
-- **Code Quality**: Projects are thoroughly documented and structured to help others learn.
-- **Continuous Updates**: This repo will be regularly updated as I complete new work and learn new technologies.
 
 ## 📫 Get in Touch!
 
@@ -62,7 +55,7 @@ Within this repository (and across my GitHub), you will find:
 
 ## 📄 CV
 
-You can view my detailed CV [here in the repository]().
+You can view my detailed CV [here in the repository](src/assets/Maryam%20Ahmed__CV.pdf).
 
 ---
 

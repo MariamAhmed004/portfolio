@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
-import { FaHome, FaUser, FaTools, FaBriefcase, FaPhone } from 'react-icons/fa';
+import { FaHome, FaUser, FaProjectDiagram, FaPhone } from 'react-icons/fa';
+import { GiToolbox } from "react-icons/gi";
 
 const Layout = ({ children }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -8,8 +9,8 @@ const Layout = ({ children }) => {
   const sections = [
     { id: 'hero', label: 'Home', icon: <FaHome /> },
     { id: 'about', label: 'About', icon: <FaUser /> },
-    { id: 'skills', label: 'Skills', icon: <FaTools /> },
-    { id: 'projects', label: 'Projects', icon: <FaBriefcase /> },
+    { id: 'skills', label: 'Skills', icon: <GiToolbox /> },
+    { id: 'projects', label: 'Projects', icon: <FaProjectDiagram /> },
     { id: 'contact', label: 'Contact', icon: <FaPhone /> }
   ];
 
